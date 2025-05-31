@@ -7,7 +7,7 @@
   <groupId>com.devopshub.app</groupId>
   <artifactId>devopshubapp</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
 
   <name>devopshubapp</name>
   <url>http://maven.apache.org</url>
