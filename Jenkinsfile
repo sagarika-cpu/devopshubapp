@@ -1,9 +1,9 @@
 pipeline {
-    agent any
+    agent { label 'serverB' }
 
     environment {
-        DOCKER_HUB_CREDENTIALS = 'dockerhub-credentials-id' // Jenkins credential ID
-        DOCKER_HUB_REPO = 'yourdockerhubusername/your-repo-name'
+        DOCKER_HUB_CREDENTIALS = 'dockerhub' // Jenkins credential ID
+        DOCKER_HUB_REPO = 'sagarika345/devopshubapp'
         IMAGE_TAG = "${env.BUILD_NUMBER}"
     }
 
@@ -13,6 +13,7 @@ pipeline {
             steps {
                 echo 'Checking out source code...'
                 checkout scm
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/sagarika-cpu/devopshubapp.git']]]
             }
         }
 
